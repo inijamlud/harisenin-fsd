@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Hello World - UTF-8</h1> -->
+
+    <!-- <input
+      type="text"
+      style="width: 300px"
+      placeholder="masukan to do list kamu.."
+    />
+    <button>input</button>
+
+    <ul class="todo-list"></ul> -->
+
+    <h1 id="text">Hallo, pal!</h1>
+    <button onclick="buttonClick()">Show</button>
+  </body>
+
+  <script>
+    const item = document.createElement("li");
+    item.innerHTML = "item1";
+    const todoList = document.getElementsByClassName("todo-list");
+    todoList[0].appendChild(item);
+
+    function buttonClick() {
+      const text = document.getElementById("text");
+      text.classList.toggle("show");
+      text.textContent = "Hide";
+    }
+  </script>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Toggle Show Hide</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      button {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Toggle Show / Hide Demo</h2>
+
+    <button id="toggleBtn">Show / Hide Text</button>
+
+    <p id="text">This text can be shown or hidden using JavaScript DOM.</p>
+
+    <script>
+      const button = document.getElementById("toggleBtn");
+      const text = document.getElementById("text");
+
+      button.addEventListener("click", () => {
+        text.classList.toggle("hidden");
+        console.log(text);
+      });
+    </script>
+  </body>
+</html>

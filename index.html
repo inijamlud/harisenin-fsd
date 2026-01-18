@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hide {
+        display: none;
+      }
+
+      .input-error {
+        border: 1px solid red;
+      }
+
+      input {
+        width: 300px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      body {
+        padding: 24px;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+
+      button:hover {
+        background-color: rgb(171, 211, 246);
+      }
+
+      .form-item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+
+      #listItems {
+        gap: 12px;
+      }
+
+      #listItems li {
+        background-color: rgb(191, 199, 199);
+        margin: 12px 0px;
+        padding: 4px;
+      }
+    </style>
+    <script src="dom.js" defer></script>
+  </head>
+  <body>
+    <h1>Todo List!</h1>
+
+    <form method="" name="add-task" class="form-group">
+      <div class="form-item">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" />
+      </div>
+
+      <button type="submit" id="btn-add">add</button>
+      <button type="button" id="btn-clear-all" onclick="clearAllTask()">
+        clear all
+      </button>
+      <p class="error"></p>
+    </form>
+
+    <div id="container">
+      <ul id="listItems"></ul>
+    </div>
+
+    <!-- <p>jumlah ListItem: <span id="childLength"></span></p> -->
+  </body>
+</html>

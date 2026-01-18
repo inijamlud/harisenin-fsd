@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To Do List App</h1>
+
+    <form>
+      <input type="text" name="todo" id="todo" style="width: 400px" />
+      <p id="error-form"></p>
+
+      <button type="submit">tambah</button>
+      <button type="button">delete</button>
+    </form>
+
+    <div>
+      <ul class="list-item"></ul>
+    </div>
+  </body>
+  <script>
+    const form = document.querySelector("form");
+    const input = document.querySelector("#todo");
+
+    const existTodo = sessionStorage.getItem("todos");
+    if (existTodo) {
+      const items = JSON.parse(existTodo);
+      items.forEach((todo, idx) => {
+        const li = document.createElement("li");
+        li.innerText = todo;
+        document.getElementsByClassName("list-item")[idx].appendChild(li);
+      });
+    }
+
+    const todoItems = [];
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const todoItem = input.value;
+      if (!isNaN(todoItem)) {
+        const p = document.getElementById("error-form");
+        p.classList.add("error");
+        p.innerHTML =
+          (todoItem == "" ? "Input" : todoItem) + " harus berupa teks!";
+        return;
+      }
+
+      document.getElementById("error-form").innerHTML = "";
+      const li = document.createElement("li");
+      li.innerText = todoItem;
+      document.getElementsByClassName("list-item")[0].appendChild(li);
+      todoItems.push(todoItem);
+      sessionStorage.setItem("todos", JSON.stringify(todoItems));
+      input.value = "";
+    });
+  </script>
+</html>
