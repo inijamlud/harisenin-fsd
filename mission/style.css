@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --orange: #f0a202;
+  --orange-100: #efd49e;
+  --blue: #385dff;
+  --blue-100: #b3bce8;
+  --red: #db504a;
+  --red-100: #f0cbca;
+  --yellow: #f7ec59;
+  --yellow-100: #fffef1;
+  --green: #44bba4;
+  --green-100: #b4e2d9;
+  --grey: #ababab7b;
+}
+
+* {
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+  background-color: #f6f5f8;
+}
+
+.todo-checkbox {
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+  align-items: start;
+}
+
+.btn-close {
+  border: 0;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  background-color: var(--red-100);
+}
+
+.list-item {
+  align-content: start;
+
+  display: grid;
+  gap: 12px;
+}
+
+/* WORKFLOW */
+
+.workflow {
+  align-content: start;
+  display: grid;
+  gap: 12px;
+}
+
+.workflow-title {
+  padding: 20px;
+  background-color: white;
+  height: 20px;
+}
+
+.workflow-todo {
+  border-left: 10px solid var(--yellow);
+}
+
+.workflow-done {
+  border-left: 10px solid var(--green);
+}
+
+.workflow-overdue {
+  border-left: 10px solid var(--red);
+}
+
+.priority {
+  font-size: 10px;
+  padding: 4px;
+  width: fit-content;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.priority-low {
+  background-color: var(--orange-100);
+  border: 1px solid var(--orange);
+  color: var(--orange);
+}
+
+.priority-medium {
+  background-color: var(--blue-100);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+
+.priority-high {
+  background-color: var(--red-100);
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.text-base {
+  margin: 0px;
+
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.font-deadline {
+  font-size: 12px;
+  color: var(--grey);
+  margin-top: 6px;
+}
+
+/* CARD */
+
+.card {
+  height: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px #ffee90;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.content-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-overdue {
+  text-decoration: line-through;
+  color: var(--red-100);
+}
+
+.empty-card {
+  background-color: var(--grey);
+  text-align: center;
+  height: 120px;
+}

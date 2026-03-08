@@ -1,65 +1,91 @@
-// await fetch("https://jsonplaceholder.typicode.com/posts", {
-//   method: "POST",
-//   body: JSON.stringify({
-//     title: "foo",
-//     body: "bar",
-//     userId: 1,
-//   }),
-//   headers: {
-//     "Content-type": "application/json; charset=UTF-8",
-//   },
-// })
-//   .then((response) => response.json())
-//   .then((json) => console.log(json))
+const body = document.querySelector("ol");
 
-// await fetch("https://jsonplaceholder.typicode.com/posts/1")
-//   .then((response) => response.json())
-//   .then((json) => console.log("get", json));
+const url = "https://jsonplaceholder.typicode.com/posts";
 
-// await fetch("https://jsonplaceholder.typicode.com/posts/1", {
-//   method: "DELETE",
-// }).then((response) => console.log(response));
+// XHR
+// try {
+//   const xhr = new XMLHttpRequest();
+//   xhr.open("GET", url);
 
-// const body = document.querySelector("ol");
+//   console.log("sa1");
 
-// let data = [];
-// const xhr = new XMLHttpRequest();
-// xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+//   xhr.onreadystatechange = () => {
+//     console.log(xhr);
 
-// xhr.onreadystatechange = function () {
-//   if (xhr.readyState == 4 && xhr.status == 200) {
-//     console.log(JSON.parse(xhr.responseText));
-//     data = JSON.parse(xhr.responseText);
+//     if (xhr.readyState == 4 && xhr.status == 200) {
+//       const data = JSON.parse(xhr.responseText);
+//       console.log("sa2");
+//       data.forEach((el) => {
+//         const p = document.createElement("li");
+//         p.innerText = el.title;
+//         body.appendChild(p);
+//       });
 
-//     data.forEach((el) => {
-//       const p = document.createElement("li");
-//       p.innerText = el.title;
-//       body.appendChild(p);
-//     });
-//   }
-// };
-// xhr.send();
+//       console.log("sa3");
+//     }
+//   };
+//   console.log("sa4");
 
+//   xhr.send();
+// } catch (error) {
+//   console.log(error);
+// }
+
+// JQUERY USES
 // $(document).ready(function () {
 //   console.log("jQuery sudah siap digunakan!");
 
 //   $.ajax({
-//     url: "https://jsonplaceholder.typicode.com/users/1",
+//     url: "https://jsonplaceholdklklklkler.typicode.com/users/1",
 //     type: "GET",
 //     success: function (data) {
 //       $("ol").html(`
-//                     <p><strong>Nama:</strong> ${data.name}</p>
-//                     <p><strong>Email:</strong> ${data.email}</p>
-//                 `);
+//                       <p><strong>Nama:</strong> ${data.name}</p>
+//                       <p><strong>Email:</strong> ${data.email}</p>
+//                   `);
 //     },
-//     error: function () {
+//     error: function (er) {
+//       console.log(er);
 //       alert("Gagal mengambil data!");
 //     },
 //   });
 // });
 
-// fetch(url)
-//   .then((data) => data.json())
-//   .then((data) => console.log(data))
-//   .catch((err) => console.log(err))
-//   .finally(() => console.log("finally error"));
+// FETCH
+const data = fetch(url)
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((el) => {
+      const p = document.createElement("li");
+      p.innerText = el.title;
+      body.appendChild(p);
+    });
+  })
+  .catch((error) => console.log(error))
+  .finally(() => console.log("Fetch process completed."));
+
+// console.log(data);
+
+async function getComments() {
+  try {
+    const resPost = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const post = await resPost.json();
+
+    const resComments = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${post.id}/comments`,
+    );
+    const comments = await resComments.json();
+    console.log(comments);
+
+    // const resComments = await fetch(
+    //   `https://api.com/comments?postId=${posts[0].id}`,
+    // );
+    // const comments = await resComments.json();
+
+    // console.log("Komentar terakhir:", comments);
+  } catch (error) {
+    console.error("Terjadi masalah di salah satu langkah:", error);
+  }
+}
+
+getComments();

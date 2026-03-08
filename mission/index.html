@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <h1 class="app-title">To Do List</h1>
+
+    <nav><a href="about.html">profile </a></nav>
+
+    <!-- <button>Add Task</button> -->
+
+    <form name="task-form" id="task-form">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select name="priority" id="priority" required>
+          <option value="" disabled selected>Select priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="duedate">Due Date</label>
+        <input type="date" name="duedate" id="duedate" />
+      </div>
+
+      <button type="submit">Add</button>
+      <button onclick="deleteAllTasks()">Delete All</button>
+    </form>
+
+    <hr />
+
+    <div class="container">
+      <!-- TODO -->
+      <div class="workflow" id="todoItems">
+        <div class="workflow-title workflow-todo">To Do</div>
+
+        <div class="list-item"></div>
+      </div>
+
+      <!-- DONE -->
+      <div class="workflow" id="doneItems">
+        <div class="workflow-title workflow-done">Done</div>
+
+        <div class="list-item"></div>
+      </div>
+
+      <!-- OVERDUE -->
+      <div class="workflow" id="overDueItems">
+        <div class="workflow-title workflow-overdue">Overdue</div>
+
+        <div class="list-item"></div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
