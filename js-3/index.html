@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <body>
+    <h1>JavaScript Promise Object</h1>
+    <h2>Promise Error Example</h2>
+
+    <p>Wait 3 seconds (3000 milliseconds) for result.</p>
+
+    <h1 id="demo"></h1>
+    <h3 id="final"></h3>
+    <h3 id="wait"></h3>
+
+    <button id="btn">click me</button>
+
+    <script>
+      // async function p() {
+      //   const myPromise = new Promise((resolve, reject) => {
+      //     let success = false;
+
+      //     setTimeout(() => {
+      //       if (success) {
+      //         resolve("Data loaded successfully");
+      //       } else {
+      //         reject("Error: Failed to load data");
+      //       }
+      //     }, 3000);
+      //   });
+
+      //   return myPromise;
+      // }
+
+      // async function main() {
+      //   p()
+      //     .then((value) => {
+      //       document.getElementById("demo").innerHTML = value;
+      //     })
+      //     .catch((error) => {
+      //       document.getElementById("demo").innerHTML = error;
+      //     })
+      //     .finally((final) => {
+      //       document.getElementById("final").innerHTML = "Selesai process";
+      //     });
+
+      //   document.getElementById("wait").innerHTML =
+      //     "Muncul setelah selesai process yaaa...";
+      // }
+
+      // main();
+
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", () => {
+        btn.style.position = "absolute";
+        btn.style.top = Math.random() * 300 + "px";
+        btn.style.left = Math.random() * 300 + "px";
+      });
+    </script>
+  </body>
+</html>

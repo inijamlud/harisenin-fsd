@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .blue-text {
+      color: blue;
+      font-style: italic;
+    }
+
+    .form-error {
+      border: 2px solid red;
+    }
+  </style>
+  <body>
+    <div class="root">
+      <h1>Catat Buku Terbaikmu</h1>
+
+      <!-- FORM HTML -->
+      <form method="post" id="form-tambah">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          class="input-user"
+          placeholder="judul"
+          style="width: 300px; padding: 8px"
+        />
+
+        <input
+          type="text"
+          name="penulis"
+          id="penulis"
+          class="input-user"
+          placeholder="penulis"
+          style="width: 300px; padding: 8px"
+        />
+
+        <input
+          type="text"
+          name="penerbit"
+          id="penerbit"
+          class="input-user"
+          placeholder="penerbit"
+          style="width: 300px; padding: 8px"
+        />
+
+        <button id="btn-add" type="submit" style="padding: 8px">add</button>
+      </form>
+
+      <div id="content-list-buku">
+        <h3>List Buku Kamu:</h3>
+        <ul id="daftar-buku"></ul>
+      </div>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+</html>
