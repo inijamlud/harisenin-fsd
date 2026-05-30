@@ -7,11 +7,11 @@ module.exports = {
   development: {
     client: "mysql2",
     connection: {
-      host: "127.0.0.1",
-      port: 3306,
-      user: "root",
-      password: "passAdmin!mySekuel",
-      database: "rise-fsd",
+      host: process.env.DATABASE_MYSQL_HOST,
+      port: process.env.DATABASE_MYSQL_PORT,
+      user: process.env.DATABASE_MYSQL_USER,
+      password: process.env.DATABASE_MYSQL_PASSWORD,
+      database: process.env.DATABASE_MYSQL_NAME,
     },
   },
 };

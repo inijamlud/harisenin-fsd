@@ -1,7 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const userRoute = require("./routes/user.route");
 const loggerMiddleware = require("./middlewares/logger.middleware");
-
 const app = express();
 
 app.use(loggerMiddleware);
