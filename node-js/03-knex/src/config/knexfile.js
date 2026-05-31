@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "../../.env" });
 // Update with your config settings.
 
 /**
@@ -12,6 +13,9 @@ module.exports = {
       user: process.env.DATABASE_MYSQL_USER,
       password: process.env.DATABASE_MYSQL_PASSWORD,
       database: process.env.DATABASE_MYSQL_NAME,
+    },
+    seeds: {
+      directory: "../../seeds",
     },
   },
 };
