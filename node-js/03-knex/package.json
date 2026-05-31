@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "db:generate": "npx knex migrate:make --knexfile src/config/knexfile.js",
+    "db:execute": "npx knex migrate:up --knexfile src/config/knexfile.js",
+    "db:rollback": "npx knex migrate:down --knexfile src/config/knexfile.js",
+    "db:last": "npx knex migrate:latest --knexfile src/config/knexfile.js"
   },
   "keywords": [],
   "author": "",
