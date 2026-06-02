@@ -1,0 +1,29 @@
+{
+  "name": "js-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:generate": "npx knex migrate:make --knexfile src/config/knexfile.js",
+    "db:execute": "npx knex migrate:up --knexfile src/config/knexfile.js",
+    "db:rollback": "npx knex migrate:down --knexfile src/config/knexfile.js",
+    "db:last": "npx knex migrate:latest --knexfile src/config/knexfile.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "knex": "^3.2.10",
+    "mysql2": "^3.22.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
