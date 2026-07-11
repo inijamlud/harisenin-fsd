@@ -1,4 +1,5 @@
 const btnSimpan = document.getElementById("btn-save");
+const btnClearAll = document.getElementById("btn-clear-all");
 const inputNama = document.getElementById("name");
 const inputJudulBuku = document.getElementById("title");
 const bookList = document.getElementById("bookList");
@@ -7,7 +8,7 @@ const bookForm = document.getElementById("bookForm");
 const arrayBooks = [];
 const dataBukuDariStorage = JSON.parse(localStorage.getItem("books")) ?? [];
 
-tampilkanData();
+tampilkanData(dataBukuDariStorage);
 
 bookForm.addEventListener("submit", (form) => {
   form.preventDefault();
@@ -42,11 +43,20 @@ bookForm.addEventListener("submit", (form) => {
   inputJudulBuku.value = "";
 });
 
-function tampilkanData() {
-  for (const buku of dataBukuDariStorage) {
+function tampilkanData(dataTerbaru) {
+  if (dataTerbaru.length == 0) bookList.innerHTML = "";
+
+  for (const buku of dataTerbaru) {
     const liElement = document.createElement("li");
     liElement.innerHTML = buku;
 
     bookList.appendChild(liElement);
   }
 }
+
+btnClearAll.addEventListener("click", () => {
+  localStorage.removeItem("books");
+  const dataBukuDariStorage = JSON.parse(localStorage.getItem("books")) ?? [];
+
+  tampilkanData([]);
+});
