@@ -6,6 +6,8 @@ const bookList = document.getElementById("bookList");
 const bookForm = document.getElementById("bookForm");
 
 const arrayBooks = [];
+
+// kalo mau diubah ke session storage, ubah localStorage menjadi sessionStorage
 const dataBukuDariStorage = JSON.parse(localStorage.getItem("books")) ?? [];
 
 tampilkanData(dataBukuDariStorage);
