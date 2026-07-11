@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pencatat Buku</title>
+    <style>
+      .hai {
+        border: 2px turquoise solid;
+        background-color: skyblue;
+      }
+
+      .blue-text {
+        color: blue;
+      }
+
+      .error-field {
+        border: 1px solid red;
+      }
+    </style>
+    <script src="./js/dom.js" defer></script>
+  </head>
+  <body>
+    <h2>Tambah Buku</h2>
+    <br />
+    <br />
+
+    <form id="bookForm">
+      <label for="name">Nama:</label><br />
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="title">Judul Buku:</label><br />
+      <input type="text" id="title" name="title" /><br /><br />
+
+      <button type="submit" id="btn-save">Simpan</button>
+    </form>
+
+    <h3>Daftar Buku</h3>
+    <ul id="bookList"></ul>
+  </body>
+</html>

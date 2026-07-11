@@ -1,17 +1,18 @@
 const form = document.getElementById("form-tambah");
 const btnAdd = document.getElementById("btn-add");
 const daftarBukuOrderedList = document.getElementById("daftar-buku");
-const books = getDataFromStorage();
-console.log(books);
+const books = [];
+console.log({ books });
 renderListBuku(books);
 
 async function getDataFromStorage() {
-  const url = "https://jsonplaceholder.typicode.com/posts";
-  const listBuku = fetch(url)
-    .then((res) => res.json())
-    .catch((error) => console.log(error));
+  // const url = "https://jsonplaceholder.typicode.com/posts";
+  // const listBuku = fetch(url)
+  //   .then((res) => res.json())
+  //   .catch((error) => console.log(error));
 
-  return listBuku ?? [];
+  // return listBuku ?? [];
+  return [];
 }
 
 function createDataId() {
